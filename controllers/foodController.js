@@ -51,5 +51,18 @@ const removeFood = async (req, res) => {
     res.json({ success: false, message: "Error" });
   }
 };
+// seed database with bulk food list //
+const seedFood = async (req, res) => {
+  try {
+    await foodmodel.deleteMany({});
+    const foodList = req.body;
+    await foodmodel.insertMany(foodList);
+
+    res.json({ success: true, message: "Database seeded with all items successfully!" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error seeding database" });
+  }
+};
 
 export { addFood, listFood, removeFood };
