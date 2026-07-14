@@ -11,7 +11,7 @@ const port = 4000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://my-defence-project.vercel.app/",
+    origin: ["http://localhost:5173", "https://my-defence-project.vercel.app/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
