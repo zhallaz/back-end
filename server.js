@@ -6,12 +6,17 @@ import foodRouter from "./routes/foodRouter.js";
 // app config
 const app = express();
 const port = 4000;
+const cors = require("cors");
 
 // middleware
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://my-defence-project.vercel.app/"],
+    origin: [
+      "http://localhost:5173",
+      "https://my-defence-project-rg95.vercel.app",
+      "https://my-defence-project.vercel.app/",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
